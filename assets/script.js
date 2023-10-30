@@ -4,8 +4,10 @@ var start=document.querySelector("#startQuiz");
 var questionText=document.querySelector("#que");
 var choice=document.querySelector(".choice");
 var response=document.querySelector("#response");
+var highScore=document.querySelector("#highScore");
+var enter=document.querySelector("#enter");
 let score=0;
-let questNo=1;
+let questNo=0;
 
 let qaBank=[{
     question:"How tall is Mount Everest?",
@@ -39,31 +41,67 @@ start.addEventListener("click",function(){
 
 
 function beginQuiz(){
+    if (questNo > 1) {
+        return;
+    }
     var begin = document.querySelector("#begin");
     begin.style.display = "none";
     choice.style.display = "block";
-    let queOne=qaBank[questNo].question;
-    let answerOne='<div class="answ" id="a1">'+qaBank[questNo].answers[0].text+'</div>'+'<div class="answ" id="a2">'+qaBank[questNo].answers[1].text+'</div>'+'<div class="answ" id="a3">'+qaBank[questNo].answers[2].text+'</div>'+'<div class="answ" id="a4">'+qaBank[questNo].answers[3].text+'</div>';
-    questionText.innerHTML=queOne;
-    choice.innerHTML=answerOne;
+    let queT=qaBank[questNo].question;
+    let answerT='<div class="answ" id="a1">'+qaBank[questNo].answers[0].text+'</div>'+'<div class="answ" id="a2">'+qaBank[questNo].answers[1].text+'</div>'+'<div class="answ" id="a3">'+qaBank[questNo].answers[2].text+'</div>'+'<div class="answ" id="a4">'+qaBank[questNo].answers[3].text+'</div>';
+    questionText.innerHTML=queT;
+    choice.innerHTML=answerT;
     var answ=choice.querySelectorAll(".answ");
     for (let i = 0; i < answ.length; i++) {
-        answ[i].setAttribute("onclick", "answSelected(this)");
+        answ[i].setAttribute("onclick", "answPicked(this)");
     }
+    return;
 };
 
-function answSelected(select){
+function answPicked(select){
+    if (questNo > 1) {
+        return;
+    }
     let userChoice = select.textContent;
     let correctChoice = qaBank[questNo].correct;
     if (userChoice == correctChoice) {
         score += 1;
-        response.textContent="Correct!" + "Your score is: " + score;
+        response.textContent="Correct! Your score is: " + score;
         console.log(score);
+        nextQuestion();
     } else {
         score -= 1;
-        response.textContent="Inorrect!"  + "Your score is: " + score;
+        response.textContent="Inorrect! Your score is: " + score;
         console.log(score);
+        count -= 3;
+        nextQuestion();
     }
+}
+
+function nextQuestion(){
+    if (questNo > 1) {
+        return;
+    }
+    questNo++;
+    beginQuiz(questNo);
+    gameOver();
+}
+
+function gameOver(){
+    if (questNo > 1) {
+        questionText.style.display="none";
+        choice.style.display = "none";
+        x = prompt("What are your initials?")
+        localScore();
+        response.textContent="Thanks for playing, " + x + "! Your final score is: "+score;
+    }
+
+}
+
+function localScore(){
+    localStorage.setItem("score",JSON.stringify(score));
+    localStorage.setItem("initials",JSON.stringify(x));
+
 }
 
 start.addEventListener("click",beginQuiz);
