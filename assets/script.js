@@ -1,4 +1,5 @@
-var count=30;
+var count=15;
+var timeLeft=document.querySelector("#timeLeft");
 var timeCount=document.querySelector("#timeCount");
 var start=document.querySelector("#startQuiz");
 var questionText=document.querySelector("#que");
@@ -8,9 +9,6 @@ var highScore=document.querySelector("#highScore");
 var enter=document.querySelector("#enter");
 let score=0;
 let questNo=0;
-
-
-
 
 let qaBank=[{
     question:"How tall is Mount Everest?",
@@ -32,7 +30,9 @@ let qaBank=[{
     correct:"Aristotle"
 }];
 
-start.addEventListener("click",function(){
+start.addEventListener("click", startButton);
+
+function startButton(){
     setInterval(function(){
         if (count>=0) {
             timeCount.innerText=count+" seconds remaining";
@@ -40,8 +40,19 @@ start.addEventListener("click",function(){
         } else {
             clearInterval(count);
     }},1000);
-});
+};
 
+/*
+function timeOut(){
+    questionText.style.display="none";
+    choice.style.display = "none";
+    timeLeft.style.display = "none";
+    timeCount.style.display = "none";
+    x = prompt("What are your initials?")
+    localScore();
+    response.textContent="Thanks for playing, " + x + "! Your final score is: "+score;
+}
+*/
 
 function beginQuiz(){
     if (questNo > 1) {
@@ -94,11 +105,12 @@ function gameOver(){
     if (questNo > 1) {
         questionText.style.display="none";
         choice.style.display = "none";
+        timeLeft.style.display = "none";
+        timeCount.style.display = "none";
         x = prompt("What are your initials?")
         localScore();
         response.textContent="Thanks for playing, " + x + "! Your final score is: "+score;
     }
-
 }
 
 function localScore(){
