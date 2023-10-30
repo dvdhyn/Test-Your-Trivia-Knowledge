@@ -4,21 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/style.css" />
   <title>Title</title>
 </head>
 
 <body>
   <section>
-    <div><a href="">View high scores</a></div>
-    <div>Time: <p id="timeLeft"></p></div>
+    <div id="highScore"><a href="">View high scores</a></div>
+    <div id="timeLeft">Time: <span id="timeCount"></span></div>
+
   </section>
   <section>
     <h1>Coding Quiz Challenge</h1>
     <div>Try and answer the following questions</div>
-    <button>Start Quiz</button>
+    <button id="startQuiz">Start Quiz</button>
     <div id="rightWrong"></div>
   </section>
-  <script src="./script.js"></script>
+  <script src="./assets/timer.js"></script>
 </body>
 </html>
