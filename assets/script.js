@@ -9,6 +9,9 @@ var enter=document.querySelector("#enter");
 let score=0;
 let questNo=0;
 
+
+
+
 let qaBank=[{
     question:"How tall is Mount Everest?",
     answers:[
@@ -99,9 +102,8 @@ function gameOver(){
 }
 
 function localScore(){
-    localStorage.setItem("score",JSON.stringify(score));
-    localStorage.setItem("initials",JSON.stringify(x));
-
+    let finalScore = localStorage.setItem("score",JSON.stringify(score));
+    let finalInitials = localStorage.setItem("initials",JSON.stringify(x));
 }
 
 start.addEventListener("click",beginQuiz);
