@@ -1,3 +1,4 @@
+// assignment code
 var count=15;
 var timeLeft=document.querySelector("#timeLeft");
 var timeCount=document.querySelector("#timeCount");
@@ -10,6 +11,7 @@ var enter=document.querySelector("#enter");
 let score=0;
 let questNo=0;
 
+// question and answer array
 let qaBank=[{
     question:"How tall is Mount Everest?",
     answers:[
@@ -30,6 +32,8 @@ let qaBank=[{
     correct:"Aristotle"
 }];
 
+
+// upon clicking the start button, timer will begin
 start.addEventListener("click", startButton);
 
 function startButton(){
@@ -54,6 +58,8 @@ function timeOut(){
 }
 */
 
+
+// flexible function that allows for a variable amount of questions and answers
 function beginQuiz(){
     if (questNo > 1) {
         return;
@@ -72,6 +78,7 @@ function beginQuiz(){
     return;
 };
 
+// response feedback when selecting an answer
 function answPicked(select){
     if (questNo > 1) {
         return;
@@ -101,6 +108,7 @@ function nextQuestion(){
     gameOver();
 }
 
+// high score entry
 function gameOver(){
     if (questNo > 1) {
         questionText.style.display="none";
@@ -118,4 +126,5 @@ function localScore(){
     let finalInitials = localStorage.setItem("initials",JSON.stringify(x));
 }
 
+// upon clicking the start button, welcome screen will be hidden and quiz will initiate on screen
 start.addEventListener("click",beginQuiz);
