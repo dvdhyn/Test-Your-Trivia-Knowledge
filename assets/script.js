@@ -1,9 +1,11 @@
 var count=10;
 var timeCount=document.querySelector("#timeCount");
 var start=document.querySelector("#startQuiz");
-var questionText=document.querySelector("#question");
+var questionText=document.querySelector("#que");
 var choice=document.querySelector(".choice");
-const database=[{
+let queCount=0;
+let score=0;
+const qaBank=[{
     question:"How tall is Mount Everest?",
     answers:[
         {text: "28,760 ft", value:0},
@@ -34,6 +36,10 @@ start.addEventListener("click",function(){
 start.addEventListener("click",function(){
     var begin = document.querySelector("#begin");
     begin.style.display = "none";
-    questionText.innerText="Question #1";
     choice.style.display = "block";
+    let queT=qaBank[0].question;
+    let answerT='<div class="answ">'+qaBank[0].answers[0].text+'</div>'+'<div class="answ">'+qaBank[0].answers[1].text+'</div>'+'<div class="answ">'+qaBank[0].answers[2].text+'</div>'+'<div class="answ">'+qaBank[0].answers[3].text+'</div>';
+    questionText.innerHTML=queT;
+    choice.innerHTML=answerT;
 });
+
