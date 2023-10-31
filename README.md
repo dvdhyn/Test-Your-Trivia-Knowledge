@@ -34,7 +34,7 @@ THEN I can save my initials and score
 
 ## My Goal
 
-This week, we were not given any starter code. My assignment is to create a web application: a multiple choice quiz woth a timer, response feedback, and high score entry.
+This week, we were not given any starter code. My assignment is to create a web application: a multiple choice quiz with a timer, response feedback, and high score entry.
 
 ## Deployment
 https://dvdhyn.github.io/mod4-challenge/
