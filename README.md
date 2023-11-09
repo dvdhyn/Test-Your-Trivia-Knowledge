@@ -37,6 +37,6 @@ THEN I can save my initials and score
 This week, we were not given any starter code. My assignment is to create a web application: a multiple choice quiz with a timer, response feedback, and high score entry.
 
 ## Deployment
-[https://dvdhyn.github.io/mod4-challenge/](https://dvdhyn.github.io/Test-Your-Trivia-Knowledge/)
+https://dvdhyn.github.io/Test-Your-Trivia-Knowledge/
 
 ![Coding Quiz Challenge](https://github.com/dvdhyn/mod4-challenge/assets/145178667/4ccb31b8-ae07-4ffb-bbc6-5c8430724267)
